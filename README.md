@@ -213,10 +213,5 @@ Edit components' Framer Motion configurations:
 - Check z-index stacking
 - Ensure overflow hidden on parent containers
 
-## 📄 License
-
 Premium Nano Banana E-commerce Design © 2026
 
----
-
-**Built with ❤️ for the future of premium beverage e-commerce**
