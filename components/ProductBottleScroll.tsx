@@ -24,12 +24,7 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
     const video = videoRef.current
     if (!video) return
 
-    let animationFrameId: number
-
     const syncVideoWithScroll = () => {
-      scrollYProgress.get() // Get current scroll progress
-      
-      // We'll update using a direct listener instead
       const unsubscribe = scrollYProgress.onChange((progress) => {
         if (video.readyState >= 2) { // HAVE_CURRENT_DATA or better
           const targetTime = Math.max(0, Math.min(progress * video.duration, video.duration - 0.01))
@@ -48,9 +43,6 @@ export default function ProductBottleScroll({ product }: ProductBottleScrollProp
 
     return () => {
       unsubscribe?.()
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId)
-      }
     }
   }, [scrollYProgress])
 
